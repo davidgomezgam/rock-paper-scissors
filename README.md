@@ -12,5 +12,10 @@ composer install
 php game.php
 ```
 
+## Execute unit tests
+```bash
+vendor/bin/phpunit 
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
