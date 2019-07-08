@@ -29,7 +29,7 @@ class Game
     }
 
     /**
-     *
+     * Start game
      */
     public function play()
     {
@@ -45,6 +45,9 @@ class Game
         $this->resume();
     }
 
+    /**
+     * Display final results by user
+     */
     public function resume()
     {
         foreach ($this->players as $player) {

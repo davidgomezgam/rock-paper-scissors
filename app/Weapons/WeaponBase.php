@@ -10,20 +10,19 @@ namespace App\Weapons;
 abstract class WeaponBase
 {
     /**
+     * Rules to win
+     *
      * @var array
      */
     protected $rule_win = [];
 
     /**
-     * @var array
-     */
-    protected $rule_lost = [];
-
-    /**
+     * Check winning weapon
+     *
      * @param WeaponInterface $weapon
      * @return string
      */
-    public function compare($weapon)
+    public function compare(WeaponInterface $weapon): string
     {
         if (get_class($weapon) === get_class($this)) {
             return 'draw';

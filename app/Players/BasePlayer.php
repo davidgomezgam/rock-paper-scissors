@@ -56,19 +56,6 @@ abstract class BasePlayer implements PlayerInterface
     }
 
     /**
-     * Set weapon
-     *
-     * @return $this
-     * @var \App\Weapons\WeaponInterface;
-     */
-    public function setWeapon(WeaponInterface $weapon)
-    {
-        $this->weapon = $weapon;
-
-        return $this;
-    }
-
-    /**
      * Set random weapon
      *
      * @param array $weapons
@@ -84,10 +71,15 @@ abstract class BasePlayer implements PlayerInterface
     }
 
     /**
-     * @param PlayerInterface $player
+     * Set player's weapon
+     *
+     * @var \App\Weapons\WeaponInterface;
+     * @return $this
      */
-    public function compare(PlayerInterface $player)
+    public function setWeapon(WeaponInterface $weapon)
     {
-        return $this->weapon->compare($player->weapon);
+        $this->weapon = $weapon;
+
+        return $this;
     }
 }

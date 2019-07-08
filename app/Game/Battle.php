@@ -10,6 +10,8 @@ use App\Weapons\Scissors;
 class Battle
 {
     /**
+     * Weapons available for users
+     *
      * @var array
      */
     protected $weapons = [Paper::class, Rock::class, Scissors::class];
@@ -25,9 +27,8 @@ class Battle
     protected $player2;
 
     /**
-     * Game constructor.
+     * Battle constructor.
      *
-     * @param int $rounds
      * @param \App\Players\PlayerInterface $player1
      * @param \App\Players\PlayerInterface $player2
      */
@@ -37,8 +38,9 @@ class Battle
         $this->player2 = $player2;
     }
 
-
     /**
+     * Start fight
+     *
      * @param mixed
      */
     public function fight()
@@ -46,7 +48,7 @@ class Battle
         $this->player1->chooseWeapon($this->weapons);
         $this->player2->chooseWeapon($this->weapons);
 
-        $result = $this->player1->compare($this->player2);
+        $result = $this->player1->weapon->compare($this->player2->weapon);
 
         switch ($result) {
             case 'victory':
