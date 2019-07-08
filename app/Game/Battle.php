@@ -3,19 +3,9 @@
 namespace App\Game;
 
 use App\Players\PlayerInterface;
-use App\Weapons\Paper;
-use App\Weapons\Rock;
-use App\Weapons\Scissors;
 
 class Battle
 {
-    /**
-     * Weapons available for users
-     *
-     * @var array
-     */
-    protected $weapons = [Paper::class, Rock::class, Scissors::class];
-
     /**
      * @var \App\Players\PlayerInterface
      */
@@ -45,8 +35,8 @@ class Battle
      */
     public function fight()
     {
-        $this->player1->chooseWeapon($this->weapons);
-        $this->player2->chooseWeapon($this->weapons);
+        $this->player1->chooseWeapon();
+        $this->player2->chooseWeapon();
 
         $result = $this->player1->weapon->compare($this->player2->weapon);
 

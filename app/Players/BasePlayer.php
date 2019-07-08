@@ -2,6 +2,9 @@
 
 namespace App\Players;
 
+use App\Weapons\Paper;
+use App\Weapons\Rock;
+use App\Weapons\Scissors;
 use App\Weapons\WeaponInterface;
 
 abstract class BasePlayer implements PlayerInterface
@@ -37,6 +40,18 @@ abstract class BasePlayer implements PlayerInterface
     protected $random = true;
 
     /**
+     * Weapons available for users
+     *
+     * @var array
+     */
+    protected $weapons = [Paper::class, Rock::class, Scissors::class];
+
+    /**
+     * @var
+     */
+    protected $result;
+
+    /**
      * @param string $name
      * @return mixed|null
      */
@@ -61,10 +76,10 @@ abstract class BasePlayer implements PlayerInterface
      * @param array $weapons
      * @return $this
      */
-    public function chooseWeapon(array $weapons)
+    public function chooseWeapon()
     {
         if ($this->random) {
-            $this->setWeapon(new $weapons[array_rand($weapons)]);
+            $this->setWeapon(new $this->weapons[array_rand($this->weapons)]);
         }
 
         return $this;

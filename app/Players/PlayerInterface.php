@@ -21,5 +21,5 @@ interface PlayerInterface
      * @param array $weapons
      * @return $this
      */
-    public function chooseWeapon(array $weapons);
+    public function chooseWeapon();
 }

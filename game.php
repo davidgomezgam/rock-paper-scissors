@@ -9,5 +9,5 @@ $player1 = new App\Players\Player('David Gomez');
 $player2 = new App\Players\Player('Player 2', false);
 $player2->setWeapon(new App\Weapons\Rock);
 
-$battle = new App\Game\Game(getenv('ROUNDS'), $player1, $player2);
-$battle->play();
+$game = new App\Game\Game(getenv('ROUNDS'), $player1, $player2);
+echo $game->play();

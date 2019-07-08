@@ -17,6 +17,11 @@ class Game
     protected $players;
 
     /**
+     * @var
+     */
+    protected $resume;
+
+    /**
      * Game constructor.
      *
      * @param int $rounds
@@ -42,7 +47,7 @@ class Game
             $rounds++;
         } while ($rounds <= $this->rounds);
 
-        $this->resume();
+        return $this->resume();
     }
 
     /**
@@ -50,12 +55,18 @@ class Game
      */
     public function resume()
     {
+
         foreach ($this->players as $player) {
-            echo "Player $player->name" . "\r\n";
-            echo "Victories: $player->victories" . "\r\n";
-            echo "Draws: $player->draws" . "\r\n";
-            echo "Defeats: $player->defeats" . "\r\n";
-            echo "--------------"  . "\r\n";
+            $output = '';
+            $output .= "Player $player->name" . "\r\n";
+            $output .= "Victories: $player->victories" . "\r\n";
+            $output .= "Draws: $player->draws" . "\r\n";
+            $output .= "Defeats: $player->defeats" . "\r\n";
+            $output .= "--------------" . "\r\n";
+
+            $this->resume .= $player->result = $output;
         }
+
+        return $this->resume;
     }
 }
